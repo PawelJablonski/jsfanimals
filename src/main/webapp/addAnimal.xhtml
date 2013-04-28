@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h:form id="animalForm">
+           
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.animalName}" />
+				<h:inputText id="name" value="#{animalBean.animal.name}" required="#{true}"/>
+
+				<h:outputText value="#{msg.animalSpecie}" />
+				<h:inputText id="specie" value="#{animalBean.animal.specie}" />
+				
+				<h:outputText value="#{msg.animalOwner}" />
+				<h:selectOneMenu id="owner"
+                     value="#{animalBean.owner}">
+			        <f:selectItems value="#{personBean.persons}" 
+			        	var="p"
+			        	itemLabel="#{p.firstName}, #{p.pin}"
+			        	itemValue="#{p.pin}"/>
+			       		
+			    </h:selectOneMenu>
+
+				
+			</h:panelGrid>
+			
+			<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{animalBean.addAnimal}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

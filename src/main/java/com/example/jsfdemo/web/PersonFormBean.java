@@ -29,6 +29,14 @@ public class PersonFormBean implements Serializable {
 
 	private ListDataModel<Person> persons = new ListDataModel<Person>();
 
+	public ListDataModel<Person> getPersons() {
+		return persons;
+	}
+
+	public void setPersons(ListDataModel<Person> persons) {
+		this.persons = persons;
+	}
+
 	@Inject
 	private PersonManager pm;
 

@@ -1,5 +1,6 @@
 package com.example.jsfdemo.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.validation.constraints.Min;
@@ -15,8 +16,16 @@ public class Person {
 	private Date dateOfBirth = new Date();
 	private double weight;
 	private boolean married;
+	private ArrayList<Animal> animals;
 	private int numOfChildren;
 	
+	
+	public ArrayList<Animal> getAnimals() {
+		return animals;
+	}
+	public void setAnimals(ArrayList<Animal> animals) {
+		this.animals = animals;
+	}
 	@Size(min = 2, max = 20)
 	public String getFirstName() {
 		return firstName;
